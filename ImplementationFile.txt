@@ -1,0 +1,70 @@
+IMPLEMENTATION OF TASK MANAGER API
+
+
+Student Name: Adebayo Stephen Oluwadamilola
+Matriculation Number: 23/12018
+
+1. Project Overview
+
+The project is a simple Task Manager API built using the Flask web framework in Python. It provides a RESTful interface for creating, reading, updating, and deleting tasks (CRUD operations). The data is stored in an in-memory list for simplicity.
+
+2. Technology Stack
+
+- Language: Python
+- Framework: Flask
+- Data Storage: In-memory list (Python List of Dictionaries)
+
+3. Implementation Details
+
+
+The application (`app.py`) is initialized as a Flask app.
+
+    app = Flask(__name__)
+
+Data Structure:
+Tasks are stored as dictionaries with the following keys:
+- id: Integer (Unique identifier)
+- title: String (Title of the task)
+- description: String (Description of the task)
+- isCompleted: Boolean (Status of the task)
+
+4. API Endpoints
+
+
+4.1 List All Tasks
+- Endpoint: /tasks
+- Method: GET
+- Description: Retrieves the list of all tasks.
+- Response: JSON array of task objects.
+
+4.2 Get Specific Task
+- Endpoint: /tasks/<task_id>
+- Method: GET
+- Description: Retrieves a specific task by its ID.
+- Response: JSON object of the task or 404 Error if not found.
+
+4.3 Create New Task
+- Endpoint: /tasks
+- Method: POST
+- Description: Creates a new task. Requires 'title' in the request body.
+- Response: JSON object of the created task with status 201.
+
+4.4 Update Task
+- Endpoint: /tasks/<task_id>
+- Method: PUT
+- Description: Updates an existing task by ID.
+- Response: JSON object of the updated task or 404 Error if not found.
+
+4.5 Delete Task
+- Endpoint: /tasks/<task_id>
+- Method: DELETE
+- Description: Deletes a task by ID.
+- Response: JSON object of the deleted task or 404 Error if not found.
+
+5. Execution
+------------
+The application runs on port 5000 in debug mode.
+
+    if __name__ == '__main__':
+        print("Task Manager API running at http://localhost:5000")
+        app.run(port=5000, debug=True)
